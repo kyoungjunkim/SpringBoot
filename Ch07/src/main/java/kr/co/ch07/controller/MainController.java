@@ -118,21 +118,25 @@ public class MainController {
 	}
 	@GetMapping("/query17")
 	public String query17() {
+		List<User1VO> users = repo.findUser1VOByAgeGreaterThanOrderByAgeDesc(0);
 		System.out.println("query17 결과 : ");
 		return "redirect:/";
 	}
 	@GetMapping("/query18")
 	public String query18() {
+		int user = repo.countUser1VOByUid(null);
 		System.out.println("query18 결과 : ");
 		return "redirect:/";
 	}
 	@GetMapping("/query19")
 	public String query19() {
+		int user = repo.countUser1VOByName(null);
 		System.out.println("query19 결과 : ");
 		return "redirect:/";
 	}
 	@GetMapping("/query20")
 	public String query20() {
+		List<User1VO> users = repo.selectUserUnderAge30();
 		System.out.println("query20 결과 : ");
 		return "redirect:/";
 	}
