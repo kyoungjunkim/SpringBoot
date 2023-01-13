@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import kr.co.ch08.service.User2Service;
@@ -17,13 +18,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		//접근 권한 설정
+		// 접근권한 설정
 		http.authorizeRequests().antMatchers("/").permitAll();
 		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers("/manager/**").hasAnyRole("ADMIN", "MANAGER");
 		http.authorizeRequests().antMatchers("/member/**").hasAnyRole("ADMIN", "MANAGER", "MEMBER");
-	
-		//사이트 위조 방지 설정
+		
+		// 사이트 위조 방지 설정
 		http.csrf().disable();
 		
 		// 로그인 설정
@@ -33,14 +34,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.usernameParameter("uid")
 		.passwordParameter("pass");
 		
-		//로그아웃 설정
-		http
-		.logout()
+		
+		// 로그아웃 설정
+		http.logout()
 		.invalidateHttpSession(true)
 		.logoutRequestMatcher(new AntPathRequestMatcher("/user2/logout"))
 		.logoutSuccessUrl("/user2/login");
-		
-		
 	}
 	
 	@Autowired
@@ -48,15 +47,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		
 		// Security 사용자에 대한 권한 설정
 		auth.inMemoryAuthentication().withUser("admin").password("{noop}1234").roles("ADMIN");
 		auth.inMemoryAuthentication().withUser("manager").password("{noop}1234").roles("MANAGER");
 		auth.inMemoryAuthentication().withUser("member").password("{noop}1234").roles("MEMBER");
 		
-		//로그인 인증 처리서비스, 암호화 방식 설정
-		auth.userDetailsService(userService).passwordEncoder(new MessageDigestPasswordEncoder("SHA-256"));
-	
-	
-	}
+		// 로그인 인증 처리 서비스, 암호화 방식 설정
+		auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder());
+	}	
 }
