@@ -61,4 +61,16 @@ public class UserController {
 		
 		return map;
 	}
+	
+	@ResponseBody
+	@GetMapping("/user/checkNick")
+	public Map<String, Integer> checkNick(String nick) {
+		
+		int result = service.countNick(nick);
+		
+		Map<String, Integer> map = new HashMap<>();
+		map.put("result", result);
+		
+		return map;
+	}
 }
