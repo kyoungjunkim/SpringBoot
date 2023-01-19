@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import kr.co.sboard.entity.UserEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,15 +20,8 @@ import lombok.Singular;
 public class MyUserDetails implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	
-	private String uid;
-	private String pass;
-	private String name;
-	private String hp;
-	private int age;
-	private String rdate;
+	private UserEntity user;
 	
-	@Singular
-	private List<String> roles; 
 	
 	
 	
@@ -35,20 +29,20 @@ public class MyUserDetails implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// 계정이 갖는 권한 목록 리턴
         List<GrantedAuthority> authorities = new ArrayList<>();
-        
+        authorities.add(new SimpleGrantedAuthority("ROLE_"+user.getGrade()));
         return authorities;
 	}
 	
 	@Override
 	public String getPassword() {
 		// 계정이 갖는 비밀번호
-		return pass;
+		return user.getPass();
 	}
 
 	@Override
 	public String getUsername() {
 		// 계정이 갖는 아이디
-		return uid;
+		return user.getUid();
 	}
 
 	@Override

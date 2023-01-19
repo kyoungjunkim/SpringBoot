@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.sboard.entity.UserEntity;
 import kr.co.sboard.vo.TermsVO;
+import kr.co.sboard.vo.UserVO;
 
 @Mapper
 @Repository
