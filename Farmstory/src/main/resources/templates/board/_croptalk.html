@@ -1,24 +1,40 @@
 <div id="sub">
-    <div><img th:src="@{/img/sub_top_tit3.png}" alt="CROP TALK"></div>
-    <section class="cate3">
-        <aside>
-            <img th:src="@{/img/sub_aside_cate3_tit.png}" alt="농작물이야기"/>
+  <div>
+    <img th:src="@{/img/sub_top_tit3.png}" alt="" />
+  </div>
+  <section class="croptalk">
+    <aside>
+      <img th:src="@{/img/sub_aside_cate3_tit.png}" alt="" />
+      <ul>
+        <li th:class="${cate} == story ? 'on' : ''">
+          <a th:href="@{/board/list(group=_croptalk, cate=story)}">
+            <img th:src="@{/img/sub_cate3_lnb1.png}" alt="" />
+          </a>
+        </li>
+        <li th:class="${cate} == grow ? 'on' : ''">
+          <a th:href="@{/board/list(group=_croptalk, cate=grow)}">
+            <img th:src="@{/img/sub_cate3_lnb2.png}" alt="" />
+          </a>
+        </li>
+        <li th:class="${cate} == school ? 'on' : ''">
+          <a th:href="@{/board/list(group=_croptalk, cate=school)}">
+            <img th:src="@{/img/sub_cate3_lnb3.png}" alt="" />
+          </a>
+        </li>
 
-            <ul class="lnb">
-                <li th:classappend="${cate}=='story'?'on'"><a th:href="@{/board/list(group=_croptalk,cate=story)}">농작물이야기</a></li>
-                <li th:classappend="${cate}=='grow'?'on'"><a th:href="@{/board/list(group=_croptalk,cate=grow)}">텃밭가꾸기</a></li>
-                <li th:classappend="${cate}=='school'?'on'"><a th:href="@{/board/list(group=_croptalk,cate=school)}">귀농학교</a></li>
-            </ul>
-
-        </aside>
-        <article>
-            <nav>
-                <img th:src="@{/img/sub_nav_tit_cate3_{cate}.png(cate=${cate})}" alt="농작물이야기"/>
-                <p>
-                    HOME > 농작물이야기 >
-                    <em th:if="${cate} == 'story'">농작물이야기</em>
-                    <em th:if="${cate} == 'grow'">텃밭가꾸기</em>
-                    <em th:if="${cate} == 'school'">귀농학교</em>
-                </p>
-            </nav>
-            <!-- 내용 시작 -->
+      </ul>
+    </aside>
+    <article>
+      <nav>
+        <th:block th:switch="${cate}">
+            <img th:case="story" th:src="@{/img/sub_nav_tit_cate3_tit1.png}" alt="농작물이야기">
+            <img th:case="grow" th:src="@{/img/sub_nav_tit_cate3_tit2.png}" alt="텃밭가꾸기">
+            <img th:case="school" th:src="@{/img/sub_nav_tit_cate3_tit3.png}" alt="귀농학교">
+        </th:block>
+        <p>HOME > 농작물이야기
+            <th:block th:switch="${cate}">
+                <em th:case="grow"> > 텃밭가꾸기</em>
+                <em th:case="school"> > 귀농학교</em>
+            </th:block>
+        </p>
+      </nav>
