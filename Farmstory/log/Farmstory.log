@@ -1,0 +1,29 @@
+2023-02-06 10:42:15.389  INFO 8060 --- [restartedMain] kr.co.farmstory.FarmstoryApplication     : Starting FarmstoryApplication using Java 17.0.4 on DESKTOP-QOTDKI5 with PID 8060 (C:\Users\java1\Desktop\WorkSapce1\SpringBoot\Farmstory\build\classes\java\main started by java1 in C:\Users\java1\Desktop\WorkSapce1\SpringBoot\Farmstory)
+2023-02-06 10:42:15.399  INFO 8060 --- [restartedMain] kr.co.farmstory.FarmstoryApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-02-06 10:42:15.497  INFO 8060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-06 10:42:15.498  INFO 8060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-06 10:42:16.427  INFO 8060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-06 10:42:16.492  INFO 8060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2023-02-06 10:42:16.744  WARN 8060 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[kr.co.farmstory]' package. Please check your configuration.
+2023-02-06 10:42:17.437  INFO 8060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8181 (http)
+2023-02-06 10:42:17.454  INFO 8060 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-06 10:42:17.455  INFO 8060 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-06 10:42:17.618  INFO 8060 --- [restartedMain] o.a.c.c.C.[.[localhost].[/Farmstory]     : Initializing Spring embedded WebApplicationContext
+2023-02-06 10:42:17.619  INFO 8060 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2120 ms
+2023-02-06 10:42:17.936  INFO 8060 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-06 10:42:18.028  INFO 8060 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-06 10:42:18.273  INFO 8060 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-06 10:42:18.404  INFO 8060 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-06 10:42:18.720  INFO 8060 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-06 10:42:18.769  INFO 8060 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2023-02-06 10:42:19.132  INFO 8060 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-06 10:42:19.143  INFO 8060 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-06 10:42:19.252  WARN 8060 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-06 10:42:19.430  INFO 8060 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@505daae7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a281fba, org.springframework.security.web.context.SecurityContextPersistenceFilter@65e829c7, org.springframework.security.web.header.HeaderWriterFilter@54ceb59f, org.springframework.security.web.authentication.logout.LogoutFilter@596a6d50, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7564e509, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f154f5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@776f64e6, org.springframework.security.web.session.SessionManagementFilter@4388162, org.springframework.security.web.access.ExceptionTranslationFilter@86e266c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@54f4b649]
+2023-02-06 10:42:19.659  INFO 8060 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-02-06 10:42:20.025  INFO 8060 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-06 10:42:20.058  INFO 8060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8181 (http) with context path '/Farmstory'
+2023-02-06 10:42:20.069  INFO 8060 --- [restartedMain] kr.co.farmstory.FarmstoryApplication     : Started FarmstoryApplication in 5.152 seconds (JVM running for 5.744)
+2023-02-06 10:42:38.025  INFO 8060 --- [http-nio-8181-exec-1] o.a.c.c.C.[.[localhost].[/Farmstory]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-06 10:42:38.026  INFO 8060 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-06 10:42:38.027  INFO 8060 --- [http-nio-8181-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

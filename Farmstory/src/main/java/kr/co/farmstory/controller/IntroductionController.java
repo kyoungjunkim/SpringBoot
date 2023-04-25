@@ -15,5 +15,4 @@ public class IntroductionController {
     public String direction(){
         return "introduction/direction";
     }
-
 }

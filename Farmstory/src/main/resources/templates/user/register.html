@@ -1,5 +1,7 @@
 <th:block th:include="@{_header.html}"/>
+
 <main id="user" class="register">
+
     <form th:action="@{/user/register}" method="post">
         <table border="1">
             <caption>사이트 이용정보 입력</caption>
@@ -7,7 +9,7 @@
                 <th>아이디</th>
                 <td>
                     <input type="text" name="uid" placeholder="아이디 입력"/>
-                    <button type="button" id="checkUid"><img th:src="@{/img/chk_id.gif}" alt="중복확인"/></button>
+                    <button type="button" id="btnUidCheck"><img th:src="@{/img/chk_id.gif}" alt="중복확인"/></button>
                     <span class="resultUid"></span>
                 </td>
             </tr>
@@ -58,10 +60,10 @@
             <tr>
                 <th>주소</th>
                 <td>
-                    <input type="text" name="zip" id="zip" placeholder="우편번호 검색" readonly/>
-                    <button type="button" id="btnPostCode"><img th:src="@{/img/chk_post.gif}" alt="우편번호 찾기"/></button>
-                    <input type="text" name="addr1" id="addr1"  placeholder="기본주소 검색" readonly/>
-                    <input type="text" name="addr2" id="addr2" placeholder="상세주소 입력"/>
+                    <input type="text" name="zip" placeholder="우편번호 검색" readonly/>
+                    <button type="button"><img th:src="@{/img/chk_post.gif}" alt="우편번호 찾기"/></button>
+                    <input type="text" name="addr1" placeholder="기본주소 검색" readonly/>
+                    <input type="text" name="addr2" placeholder="상세주소 입력"/>
                 </td>
             </tr>
         </table>
