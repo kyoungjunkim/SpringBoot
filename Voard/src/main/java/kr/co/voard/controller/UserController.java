@@ -15,16 +15,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.voard.jwt.JWTUtil;
 import kr.co.voard.repository.UserEntity;
 import kr.co.voard.security.MyUserDetails;
 import kr.co.voard.security.SecurityUserService;
+import kr.co.voard.service.UserService;
+import kr.co.voard.vo.TermsVO;
 import kr.co.voard.vo.UserVO;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
-@Controller
+@RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 
@@ -36,6 +39,29 @@ public class UserController {
 	
 	@Autowired
 	private JWTUtil jwtUtil;
+	
+	@Autowired
+	private UserService service;
+	
+	@GetMapping("/user/terms")
+	public TermsVO terms() {
+		return service.selectTerms();
+	}
+	
+	@PostMapping("/user/register")
+	public int register(@RequestBody UserVO vo) {
+		return service.insertUser(vo);
+	}
+	
+	@GetMapping("/user/countUid")
+	public int countUid(String uid) {
+		return service.countUid(uid);
+	}
+	
+	@GetMapping("/user/countNick")
+	public int countNick(String nick) {
+		return service.countNick(nick);
+	}
 	
 	@ResponseBody
 	@PostMapping("/user/login")
@@ -88,5 +114,7 @@ public class UserController {
 	public void logout() {
 		
 	}
+	
+	
 	
 }
