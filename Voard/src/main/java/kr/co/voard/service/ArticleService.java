@@ -36,13 +36,15 @@ public class ArticleService {
 		
 		// 글 등록
 		int result = dao.insertArticle(vo);
+		
+		/*
 		// 파일 업로드
 		FileVO fvo = fileUpload(vo);
 		// 파일 등록
 		if(fvo != null) {
 			dao.insertFile(fvo);
 		}
-		
+		*/
 		return result;	
 	}
 	
@@ -75,8 +77,11 @@ public class ArticleService {
 	
 	public ResponseEntity<Resource> fileDownload(FileVO vo) throws IOException {
 		
-		Path path = Paths.get(uploadPath+"/"+vo.getNewName()); 
+		Path path = Paths.get(uploadPath+vo.getNewName()); 
+		log.info("path : "+path);
+		
 		String contentType = Files.probeContentType(path);
+		log.info("contentType : "+contentType);
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentDisposition(ContentDisposition
